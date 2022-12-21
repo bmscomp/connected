@@ -1,0 +1,25 @@
+{
+  "name": "users-sink-connector",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "tasks.max": "1",
+    "topics": "users",
+    "connection.url": "jdbc:postgresql://db:5432/postgres",
+    "connection.user": "postgres",
+    "connection.password": "postgres",
+    "connection.ds.pool.size": 5,
+    "insert.mode.databaselevel": true,
+    "table.name.format": "users_table",
+    "key.converter.schema.registry.url": "http://schema-registry:8081",
+    "value.converter.schema.registry.url": "http://schema-registry:8081",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "key.converter.schemas.enable":"false",
+    "value.converter.schemas.enable":"true",
+    "config.action.reload": "restart",
+    "errors.log.enable": "true",
+    "errors.log.include.messages": "true",
+    "print.key": "true",
+    "errors.tolerance": "all"
+  }
+}
