@@ -6,3 +6,7 @@ run:
 	@echo run everything 
 	docker compose up -d
 
+ps:
+	@echo instpect running containers
+	docker compose ps
+
